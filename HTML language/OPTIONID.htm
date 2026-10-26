@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Error Example</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="options">Choose an option:</label>
+        <select id="options">
+            <option value="none">Select an option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="error">Option Error</option>
+            <option value="3">Option 3</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="errorMessage" class="error">Error: You selected the error option!</p>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            const selectedOption = document.getElementById('options').value;
+            const errorMessage = document.getElementById('errorMessage');
+            if (selectedOption === 'error') {
+                errorMessage.style.display = 'block';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                errorMessage.style.display = 'none';  
+            }
+        });
+    </script>
+</body>
+</html>
+``
